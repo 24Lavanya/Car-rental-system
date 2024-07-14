@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 // );
 app.use(
   express.static(
-    "C:\\Users\\Dell Inspiron 15\\OneDrive\\Desktop\\CARRENTAL-SQL-main\\server"
+    "D:\\Car-rental-system\\server"
   )
 );
 
@@ -47,11 +47,13 @@ app.use(
 //   database: process.env.Database,
 // });
 
+
 const db = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "lavu@sql1000",
-  database: "car",
+  host: process.env.Host,
+  user: process.env.User,
+  port: process.env.Port,
+  password: process.env.Password,
+  database: "Car_rental",
 });
 
 db.connect((err) => {
@@ -90,7 +92,7 @@ const storage = multer.diskStorage({
     // );
     cb(
       null,
-      "C:\\Users\\Dell Inspiron 15\\OneDrive\\Desktop\\CARRENTAL-SQL-main\\server\\images"
+      "D:\\Car-rental-system\\server\\images"
     );
   },
   filename: (req, file, cb) => {
@@ -118,7 +120,7 @@ const storage1 = multer.diskStorage({
     // );
     cb(
       null,
-      "C:\\Users\\Dell Inspiron 15\\OneDrive\\Desktop\\CARRENTAL-SQL-main\\server\\images"
+      "D:\\Car-rental-system\\server\\images"
     );
   },
   filename: (req, file, cb) => {
